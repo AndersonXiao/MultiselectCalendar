@@ -1,0 +1,150 @@
+* { margin: 0; padding: 0; }
+body { font-family: "Microsoft Yahei"; font-size: 14px; color: #888; }
+a, a:hover { color: #888; text-decoration: none; }
+ul, li { list-style: none; }
+
+.calendar-small {
+  display: none;
+  width: 260px;
+  padding: 5px;
+  margin: 2px auto 0;
+  background-color: #fafafa;
+  /*border-radius: 0px;*/
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+}
+.calendar-small-title {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  padding: 10px 0;
+}
+.calendar-small-title a.title {
+  display: inline-block;
+  font-size: 15px;
+  text-indent: 10px;
+}
+#backToday {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  background-color: rgb(255, 128, 142);
+  font-size: 15px;
+}
+.calendar-small-title .arrow {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 50px;
+}
+.calendar-small-title .arrow span {
+  color: #ddd;
+  font-size: 26px;
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.calendar-small-title .arrow span:hover {
+  color: #888;
+}
+.calendar-small-title .arrow-prev {
+  float: left;
+}
+.calendar-small-title .arrow-next {
+  float: right;
+}
+.calendar-small-week,
+.calendar-small-date {
+  overflow: hidden;
+  margin:0 0 10px 10px;
+}
+.calendar-small-week .item,
+.calendar-small-date .item {
+  float: left;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.calendar-small-week {
+  padding-bottom: 0px;
+  border-bottom: 1px solid rgb(255, 128, 142);
+  font-weight: bold;
+  font-size: 14px;
+  margin:0px !important;
+}
+.calendar-small-date {}
+.calendar-small-date .item {
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+}
+.calendar-small-date .item:hover,
+.calendar-small-date .item-curMonth:hover {
+  background-color: #f0f0f0;
+}
+.calendar-small-date .item-curMonth {
+  color: #333;
+}
+
+.calendar-small-date .item-curDay:hover {
+  color: #fff;
+  background-color: rgb(255, 128, 142);
+}
+.calendar-small-today {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 90px;
+  height: 48px;
+  padding: 6px 10px;
+  background-color: rgb(255, 128, 142);
+  border-radius: 5px;
+}
+.calendar-small-today .triangle {
+  position: absolute;
+  top: 50%;
+  left: -16px;
+  margin-top: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent rgb(255, 128, 142) transparent transparent;
+}
+.calendar-small-today p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.calendar-date-select {
+    color: #fff;
+    background-color: #357ebd !important;
+}
+.date-list 
+{
+    border:solid 1px #eeeeee;
+    width:40%;
+    height:302px;
+    float:left;
+
+}
+.calendar-small-week li 
+{
+     margin-left: 9px;
+    width: 26px !important;
+    
+}
+.item-curDay {
+background-color:#ffd800 ;
+}

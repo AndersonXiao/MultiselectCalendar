@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <title>单日历多选效果</title>
+        <link href="css/calendar.css" rel="stylesheet">
+    <style>
+        #selecttime ul li {
+        width: 88px;
+        float: left;
+        border: 1px solid #ccc;
+        padding: 5px 3px;
+        text-align: center;
+        margin: 5px 5px 0px 5px;
+        }
+
+        #selecttime ul li a {
+        font-size: 16px;
+        float: right;
+        color: #ccc;
+        margin: -10px -5px 0px 0px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="margin: 40px; font: 32px Microsoft Yahei; text-align: center;">单日历多选效果</h1>
+
+<div style="margin: 0 auto;width: 600px;" >
+    <div id="selecttime" style="margin: 0 auto; width:530px;height: 400px; border: 1px solid #ccc;float: left;">
+        <ul>
+        </ul>
+     </div>
+     <div style="float: left;">
+        <div id="calendar-small" class="calendar-small" style="position:absolute;z-index:99;margin-top:36px;"></div>
+        <button onclick="$('#calendar-small').css('display','block');" style="height:35px;">选择日期</button>
+</div>
+</div>
+
+
+</body>
+</html>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/calendar.js"></script>
+<script>
+    $(function () {
+        $('#calendar-small').calendar({
+            ifSwitch: true, // 是否切换月份
+            hoverDate: true, // hover是否显示当天信息
+            backToday: false, // 是否返回当天
+            days: []       //选中的数组['2019-08-23','2019-08-24','2019-08-25']
+        });
+
+        $(".calendar-small-date > li").click(function () {
+                var oli = this;
+                var flag = false;
+                $("#selecttime ul li").each(function (i, v) {
+                    if ($(v).attr("data") == $(oli).attr("data")) {
+                        $(oli).removeClass("calendar-date-select");
+                        $(v).remove();
+                        flag = true;
+                        return true;
+                    }
+
+                });
+                if (!flag) {
+                    $(oli).addClass("calendar-date-select");
+                    $("#selecttime ul").append("<li data=" + $(this).attr("data") + " >" + $(this).attr("data") + "<a href='#' onclick='removedate(this)'>×</a></li>");
+
+                }
+
+            });
+    });
+    function removedate(obj) {
+            $(".calendar-small-date > li").each(function () {
+                if ($(obj.parentNode).attr("data") == $(this).attr("data")) {
+                    $(this).removeClass("calendar-date-select");
+                }
+            });
+            $(obj.parentNode).remove();
+
+        }
+</script>
